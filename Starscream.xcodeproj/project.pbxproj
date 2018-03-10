@@ -233,7 +233,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"${BUILT_PRODUCTS_DIR}\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/module.modulemap\"\nmodule SSCZLib [system] {\n    header \"${SDK_DIR}/usr/include/zlib.h\"\n    link \"z\"\n    export *\n}\nmodule SSCommonCrypto [system] {\n    header \"${SDK_DIR}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF";
+			shellScript = "if [ -d \"${BUILT_PRODUCTS_DIR}/StarscreamModuleMap\" ]; then\necho \"${BUILT_PRODUCTS_DIR}/StarscreamModuleMap directory already exists, so skipping the rest of the script.\"\nexit 0\nfi\n\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/StarscreamModuleMap\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/StarscreamModuleMap/module.modulemap\"\nmodule SSCZLib [system] {\n    header \"${SDK_DIR}/usr/include/zlib.h\"\n    link \"z\"\n    export *\n}\nmodule SSCommonCrypto [system] {\n    header \"${SDK_DIR}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -325,7 +325,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/module.modulemap";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -338,6 +337,7 @@
 				SDKROOT = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos watchos watchsimulator";
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/StarscreamModuleMap";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -359,7 +359,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/module.modulemap";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -372,6 +371,7 @@
 				SDKROOT = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvsimulator appletvos watchos watchsimulator";
+				SWIFT_INCLUDE_PATHS = "${BUILT_PRODUCTS_DIR}/StarscreamModuleMap";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
