@@ -14,8 +14,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.swift'
   s.libraries    = 'z'
   s.pod_target_xcconfig = {
-  'SWIFT_VERSION' => '4.0',
-  'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/Starscream/zlib'
+  'SWIFT_VERSION' => '4.0'
   }
-  s.preserve_paths = 'zlib/*'
+  s.prepare_command = 'ruby modulemap_generator.rb'
 end
