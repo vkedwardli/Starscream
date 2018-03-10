@@ -152,6 +152,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33CCF08F1F5DDC030099B092 /* Build configuration list for PBXNativeTarget "Starscream" */;
 			buildPhases = (
+				F2C2C947205499B700B2CAA6 /* ShellScript */,
 				33CCF0851F5DDC030099B092 /* Sources */,
 				33CCF0891F5DDC030099B092 /* Frameworks */,
 				33CCF08B1F5DDC030099B092 /* Headers */,
@@ -179,6 +180,9 @@
 				TargetAttributes = {
 					335FA1F41F5DF71D00F6D2EC = {
 						LastSwiftMigration = 0900;
+					};
+					33CCF0841F5DDC030099B092 = {
+						LastSwiftMigration = 0910;
 					};
 				};
 			};
@@ -216,6 +220,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F2C2C947205499B700B2CAA6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${BUILT_PRODUCTS_DIR}\"\ncat <<EOF > \"${BUILT_PRODUCTS_DIR}/module.modulemap\"\nmodule SSCZLib [system] {\n    header \"${SDK_DIR}/usr/include/zlib.h\"\n    link \"z\"\n    export *\n}\nmodule SSCommonCrypto [system] {\n    header \"${SDK_DIR}/usr/include/CommonCrypto/CommonCrypto.h\"\n    export *\n}\nEOF";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		335FA1F51F5DF71D00F6D2EC /* Sources */ = {
@@ -305,13 +325,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/module.modulemap";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "${SDKROOT}";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "${CONFIGURATION_BUILD_DIR}/Starscream.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -340,13 +359,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "${BUILT_PRODUCTS_DIR}/module.modulemap";
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "${SDKROOT}";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = "${CONFIGURATION_BUILD_DIR}/Starscream.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
