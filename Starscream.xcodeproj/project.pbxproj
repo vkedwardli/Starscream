@@ -30,7 +30,6 @@
 		5CAAB5D01F7987D800F3C556 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.0.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
 		6B3E7A0019D48C2F006071F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		742419BB1DC6BDBA003ACE43 /* StarscreamTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarscreamTests.swift; path = StarscreamTests/StarscreamTests.swift; sourceTree = "<group>"; };
-		D85927D61ED761A0003460CB /* Starscream.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = Starscream.modulemap; sourceTree = "<group>"; };
 		D88EAF7E1ED4DFB5004FE2C3 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Compression.swift; sourceTree = SOURCE_ROOT; };
 		D88EAF811ED4DFD3004FE2C3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D88EAF831ED4E7D8004FE2C3 /* CompressionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressionTests.swift; sourceTree = "<group>"; };
@@ -61,7 +60,6 @@
 		6B3E79DC19D48B7F006071F7 = {
 			isa = PBXGroup;
 			children = (
-				D85927D51ED761A0003460CB /* zlib */,
 				6B3E79E819D48B7F006071F7 /* Sources */,
 				6B3E79FF19D48C2F006071F7 /* Tests */,
 				6B3E79E719D48B7F006071F7 /* Products */,
@@ -106,14 +104,6 @@
 				D88EAF831ED4E7D8004FE2C3 /* CompressionTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		D85927D51ED761A0003460CB /* zlib */ = {
-			isa = PBXGroup;
-			children = (
-				D85927D61ED761A0003460CB /* Starscream.modulemap */,
-			);
-			path = zlib;
 			sourceTree = "<group>";
 		};
 		D88EAF801ED4DFD3004FE2C3 /* Frameworks */ = {
@@ -321,7 +311,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${SDKROOT}";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = ./zlib/Starscream.modulemap;
+				MODULEMAP_FILE = "${CONFIGURATION_BUILD_DIR}/Starscream.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -356,7 +346,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "${SDKROOT}";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MODULEMAP_FILE = ./zlib/Starscream.modulemap;
+				MODULEMAP_FILE = "${CONFIGURATION_BUILD_DIR}/Starscream.modulemap";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vluxe.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
